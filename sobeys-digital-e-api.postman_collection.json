@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "9f2dcaa4-7b34-49d4-a090-84837fe7ba87",
+		"name": "sobeys-digital-e-api",
+		"description": "Digital APIs are protected by Mule OAuth Provider.\nSteps to follow access of the endpoint are provided below.\n\n1) Get Access Token endpoint - to retrieve the access_token\n2) Inquire Endpoint - Using the access_token from Get Access Token endpoint to get the member inquire reponse.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Access Token",
+			"protocolProfileBehavior": {
+				"strictSSL": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"clientId\": \"0cf667dc-e3c4-4a86-924e-b552cb53447a\",\r\n  \"clientSecret\": \"a1c3dcba-e49a-44a0-b860-788710d0510f\",\r\n  \"scope\": \"READ\",\r\n  \"grantType\": \"CLIENT_CREDENTIALS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://nonprod.apis.sobeys.com/dev/sobeys-oauth-e-api/v1/oauth/token",
+					"protocol": "https",
+					"host": [
+						"nonprod",
+						"apis",
+						"sobeys",
+						"com"
+					],
+					"path": [
+						"dev",
+						"sobeys-oauth-e-api",
+						"v1",
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "exp-digital-member-inquire Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "o7fnRkIbqUxy7HDhA3bdFkqdfMipzeV0rg305PxUOCs3MkTRHz7Kj9hevAigXQC1xKM6zyw46nxbJnNw61BEjg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"cardNumber\": 1234567890,\r\n  \"locationCode\": \"SBMTL1247\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://nonprod.apis.sobeys.com/dev/sobeys-digital-e-api/v1/member/inquire",
+					"protocol": "https",
+					"host": [
+						"nonprod",
+						"apis",
+						"sobeys",
+						"com"
+					],
+					"path": [
+						"dev",
+						"sobeys-digital-e-api",
+						"v1",
+						"member",
+						"inquire"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

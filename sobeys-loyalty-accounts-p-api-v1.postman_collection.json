@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "618ed9a1-b1fb-43c8-b4e9-014126788bc0",
+		"name": "sobeys-loyalty-accounts-p-api-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Account Linking Step-1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-trace-id",
+						"value": "sdkfghj",
+						"type": "text"
+					},
+					{
+						"key": "x-client-id",
+						"value": "b16ed75c686f4a55809b6589f8e1870b",
+						"type": "text"
+					},
+					{
+						"key": "x-client-secret",
+						"value": "0d132F657cc640dCA593B5A8ce0d2D61",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cardNumber\": 1234567890,\r\n    \"loyaltyEmail\": \"JoeSmith@gmail.com\",\r\n    \"memberUniqueId\": \"90e67883-9ba8-47bb-8bdd-c086088b23e2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://nonprod.apis.sobeys.com/dev/sobeys-loyalty-accounts-p-api/v1/member/accounts/linkage",
+					"protocol": "https",
+					"host": [
+						"nonprod",
+						"apis",
+						"sobeys",
+						"com"
+					],
+					"path": [
+						"dev",
+						"sobeys-loyalty-accounts-p-api",
+						"v1",
+						"member",
+						"accounts",
+						"linkage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Account Linking Step-2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-trace-id",
+						"value": "sdkfghj",
+						"type": "text"
+					},
+					{
+						"key": "x-client-id",
+						"value": "b16ed75c686f4a55809b6589f8e1870b",
+						"type": "text"
+					},
+					{
+						"key": "x-client-secret",
+						"value": "0d132F657cc640dCA593B5A8ce0d2D61",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountVerificationCode\": \"124741\",\r\n    \"memberUniqueId\": \"90e67883-9ba8-47bb-8bdd-c086088b23e2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://nonprod.apis.sobeys.com/dev/sobeys-loyalty-accounts-p-api/v1/member/accounts/linkage/verification",
+					"protocol": "https",
+					"host": [
+						"nonprod",
+						"apis",
+						"sobeys",
+						"com"
+					],
+					"path": [
+						"dev",
+						"sobeys-loyalty-accounts-p-api",
+						"v1",
+						"member",
+						"accounts",
+						"linkage",
+						"verification"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

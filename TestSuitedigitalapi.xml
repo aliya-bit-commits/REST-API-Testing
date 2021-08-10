@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="67a431a5-d122-4261-b5e6-2dd873e3b6a2" name="TestSuite_digital_api" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="dc87e1a1-06a0-484a-9e32-30738fef681f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1_digital_api" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="Inquire - Request 1" id="551fa2e6-1776-47df-8a01-73f468a8d2eb"><con:settings/><con:config service="https://nonprod.apis.sobeys.com" resourcePath="/dev/sobeys-digital-e-api/v1/member/inquire" methodName="Inquire" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Inquire - Request 1" id="50aed1c0-2a1c-4204-9cf7-f79e12254dd8" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Authorization" value="Bearer P0j42Nqa_OMNDcQw7exNLi4MkdPj0Gl-IzPI9LYoMYejG-QG0XyVTFqkCy9Qunj536_YSLHhdtqtWjeOm6-G_g"/>
+  <con:entry key="Host" value="&lt;calculated when request is sent>"/>
+  <con:entry key="Content-Length" value="&lt;calculated when request is sent>"/>
+  <con:entry key="Accept-Encoding" value="gzip, deflate, br"/>
+  <con:entry key="User-Agent" value=""/>
+  <con:entry key="Postman-Token" value="&lt;calculated when request is sent>"/>
+  <con:entry key="Connection" value="keep-alive"/>
+  <con:entry key="Accept" value=""/>
+  <con:entry key="Content-Type" value="application/json"/>
+  <con:entry key="Cache-Control" value="no-cache"/>
+</xml-fragment>]]></con:setting></con:settings><con:endpoint>https://nonprod.apis.sobeys.com</con:endpoint><con:request/><con:originalUri>https://nonprod.apis.sobeys.com/dev/sobeys-digital-e-api/v1/member/inquire</con:originalUri><con:assertion type="GroovyScriptAssertion" id="b78395e9-c729-4236-ab40-f275bb1316d7" name="Script Assertion"><con:configuration/></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="Bearer Token" value="mTefhlTEJixThsEsJpUw1cRlGKDsGeiBdydvFdsThIy5TnEG8kREzwqMmODiSkCffadopbI9gLyjRGDX5FdWXg" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder><con:entry>Bearer Token</con:entry></con:parameterOrder></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite>

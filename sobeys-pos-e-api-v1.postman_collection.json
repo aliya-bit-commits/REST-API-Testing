@@ -1,0 +1,283 @@
+{
+	"info": {
+		"_postman_id": "2b40f9c3-3981-4cda-89b3-e807c9ce67f5",
+		"name": "sobeys-pos-e-api-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Oauth Token",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n  \"clientId\": \"0cf667dc-e3c4-4a86-924e-b552cb53447a\",\n\n  \"clientSecret\": \"a1c3dcba-e49a-44a0-b860-788710d0510f\",\n\n  \"scope\": \"READ\",\n\n  \"grantType\": \"CLIENT_CREDENTIALS\"\n\n}"
+				},
+				"url": {
+					"raw": "https://nonprod.apis.sobeys.com/dev/sobeys-oauth-e-api/v1/oauth/token",
+					"protocol": "https",
+					"host": [
+						"nonprod",
+						"apis",
+						"sobeys",
+						"com"
+					],
+					"path": [
+						"dev",
+						"sobeys-oauth-e-api",
+						"v1",
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC 02 Redeem Points in LPS by sending the mandatory fields only",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "PAX8vXMSemGL3orThROFEFDv3Y_tXvSlPt9bwuU1aOqLYcPhF78_ffHbW8BtjZXR79gypyjFi_LWq4SNqDTyFA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 8DxwEFmRoAzbqyWBWEL6hhqZOqhTy-j0wc68oi1G4tzQuL7j8hU6eAd0qa1G_Ta2r88xUvyNeJvScT_CAxRxlg"
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/plain"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<XMLAJBFipayResponse>\n  <IxCmd>101</IxCmd>\n  <IxActionCode>0</IxActionCode>\n  <IxTimeOut>7</IxTimeOut>\n  <IxDebitCredit>GiftCard3</IxDebitCredit>\n  <IxStoreNumber>005</IxStoreNumber>\n  <IxTerminalNumber>0005</IxTerminalNumber>\n  <IxTranType>BalanceInquiry</IxTranType>\n  <IxAccount>85550100001105</IxAccount>\n  <IxInvoice>12345</IxInvoice>\n  <IxTranLanguage>en</IxTranLanguage>\n  <IxOptions>*STORESTAN=10001 *BARCODESCAN noexpcheck nomod10</IxOptions>\n  <IxOperator>123</IxOperator>\n  <IxChequeType>-0400</IxChequeType>\n  <IxPS2000>Active</IxPS2000>\n  <IxDate>09202016</IxDate>\n  <IxTime>104200</IxTime>\n  <IxDepositdata>50000</IxDepositData>\n  <IxIsoResp>20005</IxIsoresp>\n</XMLAJBFipayResponse>",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://nonprod.apis.sobeys.com/dev/sobeys-pos-e-api/v1/member/inquire",
+					"protocol": "https",
+					"host": [
+						"nonprod",
+						"apis",
+						"sobeys",
+						"com"
+					],
+					"path": [
+						"dev",
+						"sobeys-pos-e-api",
+						"v1",
+						"member",
+						"inquire"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validate loyalty card and return points balance",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 8DxwEFmRoAzbqyWBWEL6hhqZOqhTy-j0wc68oi1G4tzQuL7j8hU6eAd0qa1G_Ta2r88xUvyNeJvScT_CAxRxlg"
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/plain"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<XMLAJBFipayRequest>\n\n    <IxCmd>100</IxCmd>\n\n    <IxTimeOut>7</IxTimeOut>\n\n    <IxDebitCredit>GiftCard2</IxDebitCredit>\n\n    <IxStoreNumber>005</IxStoreNumber>\n\n    <IxTerminalNumber>0005</IxTerminalNumber>\n\n    <IxTranType>BalanceInquiry</IxTranType>\n\n    <IxAccount>85550100001105</IxAccount>\n\n    <IxInvoice>12345</IxInvoice>\n\n    <IxTranLanguage>en</IxTranLanguage>\n\n    <IxOptions>*STORESTAN=10001 *BARCODESCAN noexpcheck nomod10</IxOptions>\n\n    <IxOperator>123</IxOperator>\n\n    <IxChequeType>-0400</IxChequeType>\n\n    <IxCrMerchant>8889</IxCrMerchant>\n\n    <IxDate>09202016</IxDate>\n\n    <IxTime>104200</IxTime>\n\n    <IxTranTypeDec>Sobeys</IxTranTypeDec>\n\n</XMLAJBFipayRequest>"
+				},
+				"url": {
+					"raw": "https://nonprod.apis.sobeys.com/dev/sobeys-pos-e-api/v1/member/inquire",
+					"protocol": "https",
+					"host": [
+						"nonprod",
+						"apis",
+						"sobeys",
+						"com"
+					],
+					"path": [
+						"dev",
+						"sobeys-pos-e-api",
+						"v1",
+						"member",
+						"inquire"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Redeem loyalty points",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "zmIKllwY1-la9cTHsNEEGKBW9KHjCRDcGrjyL2ueNN-jxPU9hr_zvVLcFmyCSCnfCriAPO0VLEDcfOOzeiGjpA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 8DxwEFmRoAzbqyWBWEL6hhqZOqhTy-j0wc68oi1G4tzQuL7j8hU6eAd0qa1G_Ta2r88xUvyNeJvScT_CAxRxlg"
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/plain"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<XMLAJBFipayRequest>\n\n  <IxCmd>100</IxCmd>\n\n  <IxTimeOut>7</IxTimeOut>\n\n  <IxDebitCredit>GiftCard2</IxDebitCredit>\n\n  <IxStoreNumber>005</IxStoreNumber>\n\n  <IxTerminalNumber>0005</IxTerminalNumber>\n\n  <IxTranType>Redeem</IxTranType>\n\n  <IxAccount>85550100001105</IxAccount>\n\n  <IxAmount>8200</IxAmount>\n\n  <IxInvoice>12345</IxInvoice>\n\n  <IxTranLanguage>en</IxTranLanguage>\n\n  <IxOptions>*STORESTAN=10001 *BARCODESCAN noexpcheck nomod10</IxOptions>\n\n  <IxOperator>123</IxOperator>\n\n  <IxChequeType>-0400</IxChequeType>\n\n  <IxCrMerchant>8889</IxCrMerchant>\n\n  <IxSeqNumber>123456789</IxSeqNumber>\n\n  <IxCashier>true</IxCashier>\n\n  <IxDate>09202016</IxDate>\n\n  <IxTime>104200</IxTime>\n\n  <IxProductInfo>5000</IxProductInfo>\n\n  <IxTranTypeDec>Sobeys</IxTranTypeDec>\n\n  <IxOrgAmount>13</IxOrgAmount>\n\n</XMLAJBFipayRequest>"
+				},
+				"url": {
+					"raw": "https://nonprod.apis.sobeys.com/dev/sobeys-pos-e-api/v1/member/redeem",
+					"protocol": "https",
+					"host": [
+						"nonprod",
+						"apis",
+						"sobeys",
+						"com"
+					],
+					"path": [
+						"dev",
+						"sobeys-pos-e-api",
+						"v1",
+						"member",
+						"redeem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Redeem loyalty points-with Only Mandatory fields",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "zmIKllwY1-la9cTHsNEEGKBW9KHjCRDcGrjyL2ueNN-jxPU9hr_zvVLcFmyCSCnfCriAPO0VLEDcfOOzeiGjpA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 8DxwEFmRoAzbqyWBWEL6hhqZOqhTy-j0wc68oi1G4tzQuL7j8hU6eAd0qa1G_Ta2r88xUvyNeJvScT_CAxRxlg"
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/plain"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<XMLAJBFipayRequest>\n\n  <IxCmd>100</IxCmd>\n\n  <IxTimeOut>7</IxTimeOut>\n\n  <IxDebitCredit>GiftCard2</IxDebitCredit>\n\n  <IxStoreNumber>005</IxStoreNumber>\n\n  <IxTerminalNumber>0005</IxTerminalNumber>\n\n  <IxTranType>Redeem</IxTranType>\n\n  <IxAccount>85550100001105</IxAccount>\n\n  <IxAmount>8200</IxAmount>\n\n  <IxInvoice>12345</IxInvoice>\n\n  <IxTranLanguage>en</IxTranLanguage>\n\n  <IxOptions>*STORESTAN=10001 *BARCODESCAN noexpcheck nomod10</IxOptions>\n\n  <IxOperator>123</IxOperator>\n\n  <IxChequeType>-0400</IxChequeType>\n\n  <IxCrMerchant>8889</IxCrMerchant>\n\n  <IxSeqNumber>123456789</IxSeqNumber>\n\n  <IxCashier>true</IxCashier>\n\n  <IxDate>09202016</IxDate>\n\n  <IxTime>104200</IxTime>\n\n  <IxProductInfo>5000</IxProductInfo>\n\n  <IxTranTypeDec>Sobeys</IxTranTypeDec>\n\n  <IxOrgAmount>13</IxOrgAmount>\n\n</XMLAJBFipayRequest>"
+				},
+				"url": {
+					"raw": "https://nonprod.apis.sobeys.com/dev/sobeys-pos-e-api/v1/member/redeem",
+					"protocol": "https",
+					"host": [
+						"nonprod",
+						"apis",
+						"sobeys",
+						"com"
+					],
+					"path": [
+						"dev",
+						"sobeys-pos-e-api",
+						"v1",
+						"member",
+						"redeem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "gJ6cTxvG92ayWuQvoMEvGvJxjSzcXNeRn18PlrLUjUshJ7nvHpZgRzHRdxx9ejC84Z8IL3Rg_g2QSEdaMZZzig",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<XMLAJBFipayRequest>\r\n  <IxCmd>100</IxCmd>\r\n  <IxTimeOut>7</IxTimeOut>\r\n  <IxDebitCredit>GiftCard2</IxDebitCredit>\r\n  <IxStoreNumber>005</IxStoreNumber>\r\n  <IxTerminalNumber>0005</IxTerminalNumber>\r\n  <IxTranType>Redeem</IxTranType>\r\n  <IxAccount>85550100001105</IxAccount>\r\n  <IxAmount>8200</IxAmount>\r\n  <IxInvoice>12345</IxInvoice>\r\n  <IxTranLanguage>en</IxTranLanguage>\r\n  <IxOptions>*STORESTAN=10001 *BARCODESCAN noexpcheck nomod10</IxOptions>\r\n  <IxOperator>123</IxOperator>\r\n  <IxChequeType>-0400</IxChequeType>\r\n  <IxCrMerchant>8889</IxCrMerchant>\r\n  <IxSeqNumber>123456789</IxSeqNumber>\r\n  <IxCashier>true</IxCashier>\r\n  <IxDate>09202016</IxDate>\r\n  <IxTime>104200</IxTime>\r\n  <IxProductInfo>5000</IxProductInfo>\r\n  <IxTranTypeDec>Sobeys</IxTranTypeDec>\r\n  <IxOrgAmount>13</IxOrgAmount>\r\n</XMLAJBFipayRequest>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://nonprod.apis.sobeys.com/dev/sobeys-pos-e-api/v1/member/redeem",
+					"protocol": "https",
+					"host": [
+						"nonprod",
+						"apis",
+						"sobeys",
+						"com"
+					],
+					"path": [
+						"dev",
+						"sobeys-pos-e-api",
+						"v1",
+						"member",
+						"redeem"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

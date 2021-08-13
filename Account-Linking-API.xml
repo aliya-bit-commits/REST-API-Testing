@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="6fb99c67-c4c9-474c-88ac-8088b66bd2fb" name="Account Linking API" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="bcc45c6a-e4b1-41d1-957d-949e718070c8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="POST- AccountLinking API" searchProperties="true"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="restrequest" name="AccountLinking-1 Request" id="5d64c332-3ba7-4616-8590-26e8b8b4a03c"><con:settings/><con:config service="https://nonprod.apis.sobeys.com" resourcePath="/sobeys-loyalty-accounts-p-api/v1/member/accounts/linkage" methodName="Post Account Linkage1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="AccountLinking-1 Request" id="d0d9efae-0721-42db-b607-a133a1e76873" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="x-trace-id" value="sdkfghj"/>&#13;
+  &lt;con:entry key="x-client-secret" value="0d132F657cc640dCA593B5A8ce0d2D61"/>&#13;
+  &lt;con:entry key="x-client-id" value="b16ed75c686f4a55809b6589f8e1870b"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://nonprod.apis.sobeys.com/dev</con:endpoint><con:request>{
+    "cardNumber": 1234567890,
+    "loyaltyEmail": "JoeSmith@gmail.com",
+    "memberUniqueId": "90e67883-9ba8-47bb-8bdd-c086088b23e2"
+}</con:request><con:originalUri>https://nonprod.apis.sobeys.com/dev/sobeys-loyalty-accounts-p-api/v1/member/accounts/linkage</con:originalUri><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="51a5a416-5c7e-4da4-beaf-d7e60ef56b87" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="POST- AccountLinking API-2" searchProperties="true"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="restrequest" name="AccountLinking-2 Request" id="9e9b8b17-f80d-456d-939d-446f7736cd17"><con:settings/><con:config service="https://nonprod.apis.sobeys.com" resourcePath="/sobeys-loyalty-accounts-p-api/v1/member/accounts/linkage/verification" methodName="Post Account Linkage2" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="AccountLinking-2 Request" id="d0d9efae-0721-42db-b607-a133a1e76873" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="x-trace-id" value="sdkfghj"/>&#13;
+  &lt;con:entry key="x-client-secret" value="0d132F657cc640dCA593B5A8ce0d2D61"/>&#13;
+  &lt;con:entry key="x-client-id" value="b16ed75c686f4a55809b6589f8e1870b"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://nonprod.apis.sobeys.com/dev</con:endpoint><con:request>{
+    "accountVerificationCode": "124741",
+    "memberUniqueId": "90e67883-9ba8-47bb-8bdd-c086088b23e2"
+}</con:request><con:originalUri>https://nonprod.apis.sobeys.com/dev/sobeys-loyalty-accounts-p-api/v1/member/accounts/linkage</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="75bd2278-5f4f-438a-b282-73b93e835407" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="properties" name="Properties" id="f97348f0-2c95-4187-b557-2a853befad91"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:target>C:/Users/surisi/Documents/AutomationReadyAPI/Post-AccountLinking API-2.properties</con:target><con:properties><con:property><con:name>Response</con:name><con:value>HTTP/1.1 200 OK&#13;
+Date: Thu, 12 Aug 2021 16:00:14 GMT&#13;
+Content-Type: application/json; charset=UTF-8&#13;
+Content-Length: 100&#13;
+Connection: keep-alive&#13;
+Strict-Transport-Security: max-age=31536000; includeSubdomains;&#13;
+X-Content-Type-Options: nosniff&#13;
+X-Frame-Options: SAMEORIGIN&#13;
+X-XSS-Protection: 1; mode=block&#13;
+&#13;
+{
+  "linkStatusName": "Linked",
+  "loyaltyCustomerUniqueId": "90df7883-9ba8-47bb-8bdd-c08488b23e1"
+}</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="791cc859-34cf-4ac1-bc29-eecf534bb4fa"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>ResponseTransfer</con:name><con:sourceType>RawResponse</con:sourceType><con:sourceStep>AccountLinking-2 Request</con:sourceStep><con:sourcePath/><con:targetType>Response</con:targetType><con:targetStep>Properties</con:targetStep><con:targetPath/><con:type>XPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>f97348f0-2c95-4187-b557-2a853befad91</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="bd076dd4-2579-4258-aabe-5c6d57728266" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="POST- Accounts Summary" searchProperties="true" timeout="0"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="restrequest" name="REST Request" id="a531497b-d6ae-4e52-b548-9a5e22795c21"><con:settings/><con:config service="https://nonprod.apis.sobeys.com" resourcePath="/sobeys-loyalty-accounts-p-api/v1/member/accounts/summary" methodName="Post Accounts Summary" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="REST Request" id="d0d9efae-0721-42db-b607-a133a1e76873" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">&#13;
+  &lt;con:entry key="x-trace-id" value="sdkfghj"/>&#13;
+  &lt;con:entry key="x-client-secret" value="0d132F657cc640dCA593B5A8ce0d2D61"/>&#13;
+  &lt;con:entry key="x-client-id" value="b16ed75c686f4a55809b6589f8e1870b"/>&#13;
+&lt;/xml-fragment></con:setting></con:settings><con:endpoint>https://nonprod.apis.sobeys.com/dev</con:endpoint><con:request>{
+    "cardNumber": 2072213965,
+    "locationCode": "SBMTL1247"
+}</con:request><con:originalUri>https://nonprod.apis.sobeys.com/dev/sobeys-loyalty-accounts-p-api/v1/member/accounts/linkage</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="931a5eeb-ae02-48e1-a265-ac4a856f79e9" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="properties" name="Properties" id="8def8dc5-5fe6-4406-ab3a-4c27b317661d"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:target>C:/Users/surisi/Documents/AutomationReadyAPI/Post-AccountSummary</con:target><con:properties><con:property><con:name>Response</con:name><con:value>HTTP/1.1 200 OK&#13;
+Date: Thu, 12 Aug 2021 16:17:26 GMT&#13;
+Content-Type: application/json; charset=UTF-8&#13;
+Content-Length: 134&#13;
+Connection: keep-alive&#13;
+Strict-Transport-Security: max-age=31536000; includeSubdomains;&#13;
+X-Content-Type-Options: nosniff&#13;
+X-Frame-Options: SAMEORIGIN&#13;
+X-XSS-Protection: 1; mode=block&#13;
+&#13;
+{
+  "loyaltyCustomerUniqueId": "7ff8e428-2581-45b7-8966-4931541344c5",
+  "enrollmentStatusName": "Enrolled",
+  "pointBalance": 15000
+}</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="ec2fb78a-3eb1-46ab-b76d-bbdded732563"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>ResponseTransfer</con:name><con:sourceType>RawResponse</con:sourceType><con:sourceStep>REST Request</con:sourceStep><con:sourcePath/><con:targetType>Response</con:targetType><con:targetStep>Properties</con:targetStep><con:targetPath/><con:type>JSONPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite>
